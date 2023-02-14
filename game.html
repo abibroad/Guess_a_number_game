@@ -8,12 +8,52 @@
 </head>
 <body>
     <script>
-         // generate the secret number
+// generate the secret number
+// provide the upper and lower limit  1 and 100
  let secret = Math.floor(Math.random() * 100) + 1;
       let low = 1;
       let high = 100;
 
+     
       
+      
+      // get the user's input number     
+      // check the user's input against a secret
+      // if input is greater than the secret,
+      //   do something;
+      // else if input is less than the secret,
+      //   do some other thing; // next step should be 3 to 100
+      // else // they are equal!
+      //   print out the Win! message, and program ends.
+      //  enclosed by a loop
+
+     
+
+      while (true) {
+        let input = parseInt(
+          prompt(`Input your guess between ${low} and ${high}.`)
+        );
+        if (isNaN(input)) {
+          alert("Please enter a number.");
+          continue;
+        }
+        if (input < low || input > high) {
+          // outside the hint range
+          alert("Please stay within the range.");
+          continue;
+        }
+        if (input > secret) {
+          high = input - 1;
+          
+        } else if (input < secret) {
+          low = input + 1;
+        } else {
+          // input === secret
+          // you win!
+          alert("You Win!");
+          break;
+        }
+      }
     </script>
 </body>
 </html>
